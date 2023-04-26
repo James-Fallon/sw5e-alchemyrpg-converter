@@ -26,6 +26,6 @@ Update `convert.py` by plugging in the path to the json you downloaded in step 2
 
 ## 4. Upload JSON to Alchemy
 
-Step 4 will have generated a new `alchemy-character.json` file in the repo. In Alchemy under Characters hit 'Import JSON' and choose this file. 
+Step 3 will have generated a new `alchemy-character.json` file in the repo. In Alchemy under Characters hit 'Import JSON' and choose this file. 
 
 And thats it!

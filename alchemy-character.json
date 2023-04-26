@@ -1,0 +1,903 @@
+{
+    "name": "Seeko Tath",
+    "maxHp": 44,
+    "hitDice": "5d10",
+    "abilityScores": [
+        {
+            "name": "str",
+            "value": 15
+        },
+        {
+            "name": "dex",
+            "value": 10
+        },
+        {
+            "name": "con",
+            "value": 14
+        },
+        {
+            "name": "int",
+            "value": 14
+        },
+        {
+            "name": "wis",
+            "value": 16
+        },
+        {
+            "name": "cha",
+            "value": 8
+        }
+    ],
+    "alignment": "Lawful Light",
+    "armorClass": 10,
+    "classes": [
+        {
+            "class": "Guardian",
+            "level": 5
+        }
+    ],
+    "currentHp": 44,
+    "exp": 6500,
+    "eyes": "",
+    "gold": 127,
+    "hair": "",
+    "height": "",
+    "initiativeBonus": 0,
+    "isNPC": false,
+    "isSpellcaster": true,
+    "itemsWithActions": [
+        {
+            "actions": [
+                {
+                    "name": "Lightsaber Attack",
+                    "sortOrder": 1,
+                    "steps": [
+                        {
+                            "attack": {
+                                "ability": "str",
+                                "crit": 20,
+                                "damageRolls": [
+                                    {
+                                        "abilityName": "str",
+                                        "dice": "1d6",
+                                        "type": "Energy"
+                                    }
+                                ],
+                                "isProficient": true,
+                                "name": "Lightsaber Attack",
+                                "rollsAttack": true,
+                                "savingThrow": {},
+                                "isRanged": false
+                            },
+                            "type": "custom-attack"
+                        }
+                    ]
+                }
+            ],
+            "item": {
+                "cost": "UNKNOWN",
+                "name": "Lightsaber",
+                "properties": [],
+                "quantity": 1,
+                "type": "Weapon",
+                "weaponType": "Lightsaber",
+                "weight": 2.25
+            }
+        },
+        {
+            "item": {
+                "cost": "UNKNOWN",
+                "name": "Datapad",
+                "properties": [],
+                "quantity": 1,
+                "type": "Adventuring gear",
+                "weaponType": "Datapad",
+                "weight": 0.5
+            }
+        },
+        {
+            "actions": [
+                {
+                    "name": "Cycler Rifle Attack",
+                    "sortOrder": 1,
+                    "steps": [
+                        {
+                            "attack": {
+                                "ability": "dex",
+                                "crit": 20,
+                                "damageRolls": [
+                                    {
+                                        "abilityName": "dex",
+                                        "dice": "1d8",
+                                        "type": "Kinetic"
+                                    }
+                                ],
+                                "isProficient": true,
+                                "name": "Cycler Rifle Attack",
+                                "rollsAttack": true,
+                                "savingThrow": {},
+                                "isRanged": true,
+                                "range": 90,
+                                "longRange": 360
+                            },
+                            "type": "custom-attack"
+                        }
+                    ]
+                }
+            ],
+            "item": {
+                "cost": "UNKNOWN",
+                "name": "Cycler Rifle",
+                "properties": [],
+                "quantity": 1,
+                "type": "Weapon",
+                "weaponType": "Cycler Rifle",
+                "weight": 7.5
+            }
+        },
+        {
+            "item": {
+                "cost": "UNKNOWN",
+                "name": "Lightblade",
+                "properties": [],
+                "quantity": 1,
+                "type": "Adventuring gear",
+                "weaponType": "Lightblade",
+                "weight": 1.5
+            }
+        },
+        {
+            "actions": [
+                {
+                    "name": "Techaxe Attack",
+                    "sortOrder": 1,
+                    "steps": [
+                        {
+                            "attack": {
+                                "ability": "str",
+                                "crit": 20,
+                                "damageRolls": [
+                                    {
+                                        "abilityName": "str",
+                                        "dice": "1d6",
+                                        "type": "Kinetic"
+                                    }
+                                ],
+                                "isProficient": true,
+                                "name": "Techaxe Attack",
+                                "rollsAttack": true,
+                                "savingThrow": {},
+                                "isRanged": true,
+                                "range": 25,
+                                "longRange": 75
+                            },
+                            "type": "custom-attack"
+                        }
+                    ]
+                }
+            ],
+            "item": {
+                "cost": "UNKNOWN",
+                "name": "Techaxe",
+                "properties": [],
+                "quantity": 1,
+                "type": "Weapon",
+                "weaponType": "Techaxe",
+                "weight": 1.0
+            }
+        }
+    ],
+    "movementModes": [],
+    "proficiencies": [
+        {
+            "name": "Constitution",
+            "type": "save"
+        },
+        {
+            "name": "Charisma",
+            "type": "save"
+        },
+        {
+            "name": "Artificer's tools",
+            "type": "tool"
+        },
+        {
+            "name": "Galactic Basic",
+            "type": "language"
+        },
+        {
+            "name": "Lightclub",
+            "type": "weapon"
+        },
+        {
+            "name": "Lightdagger",
+            "type": "weapon"
+        },
+        {
+            "name": "Lightsaber",
+            "type": "weapon"
+        },
+        {
+            "name": "Shotosaber",
+            "type": "weapon"
+        },
+        {
+            "name": "Doublesaber",
+            "type": "weapon"
+        },
+        {
+            "name": "Doubleshoto",
+            "type": "weapon"
+        },
+        {
+            "name": "Greatsaber",
+            "type": "weapon"
+        },
+        {
+            "name": "Lightfoil",
+            "type": "weapon"
+        },
+        {
+            "name": "Light Ring",
+            "type": "weapon"
+        },
+        {
+            "name": "Lightsaber Pike",
+            "type": "weapon"
+        },
+        {
+            "name": "Martial Lightsaber",
+            "type": "weapon"
+        },
+        {
+            "name": "Saberspear",
+            "type": "weapon"
+        },
+        {
+            "name": "Saberwhip",
+            "type": "weapon"
+        },
+        {
+            "name": "Techaxe",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrodagger",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrodart",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibroknuckler",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibromace",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrostaff",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrospear",
+            "type": "weapon"
+        },
+        {
+            "name": "Chakram",
+            "type": "weapon"
+        },
+        {
+            "name": "Doubleblade",
+            "type": "weapon"
+        },
+        {
+            "name": "Doublesword",
+            "type": "weapon"
+        },
+        {
+            "name": "Hidden Blade",
+            "type": "weapon"
+        },
+        {
+            "name": "Net",
+            "type": "weapon"
+        },
+        {
+            "name": "Techblade",
+            "type": "weapon"
+        },
+        {
+            "name": "Techstaff",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibroaxe",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrobaton",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibroblade",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrolance",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibropike",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrorapier",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrosword",
+            "type": "weapon"
+        },
+        {
+            "name": "Vibrowhip",
+            "type": "weapon"
+        },
+        {
+            "name": "Light Armor",
+            "type": "armor"
+        },
+        {
+            "name": "Medium Armor",
+            "type": "armor"
+        }
+    ],
+    "proficiencyBonus": 3,
+    "race": "Cerean",
+    "size": "Medium",
+    "skills": [
+        {
+            "abilityName": "str",
+            "doubleProficiency": false,
+            "name": "Athletics",
+            "proficient": false
+        },
+        {
+            "abilityName": "dex",
+            "doubleProficiency": false,
+            "name": "Acrobatics",
+            "proficient": false
+        },
+        {
+            "abilityName": "dex",
+            "doubleProficiency": false,
+            "name": "Sleight Of Hand",
+            "proficient": false
+        },
+        {
+            "abilityName": "dex",
+            "doubleProficiency": false,
+            "name": "Stealth",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "doubleProficiency": false,
+            "name": "Investigation",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "doubleProficiency": false,
+            "name": "Lore",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "doubleProficiency": false,
+            "name": "Nature",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "doubleProficiency": false,
+            "name": "Piloting",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "doubleProficiency": false,
+            "name": "Technology",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "doubleProficiency": false,
+            "name": "Animal Handling",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "doubleProficiency": true,
+            "name": "Insight",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "doubleProficiency": false,
+            "name": "Medicine",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "doubleProficiency": false,
+            "name": "Perception",
+            "proficient": true
+        },
+        {
+            "abilityName": "wis",
+            "doubleProficiency": false,
+            "name": "Survival",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "doubleProficiency": false,
+            "name": "Deception",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "doubleProficiency": false,
+            "name": "Intimidation",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "doubleProficiency": false,
+            "name": "Performance",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "doubleProficiency": false,
+            "name": "Persuasion",
+            "proficient": false
+        }
+    ],
+    "skin": "",
+    "speed": 30,
+    "spellFilters": [
+        "Known"
+    ],
+    "spellSlots": [
+        {
+            "max": 13,
+            "remaining": 13
+        },
+        {
+            "max": 0,
+            "remaining": 0
+        }
+    ],
+    "spellcastingAbility": "wis",
+    "spells": [
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "Placing your hand on another creature you can transfer your own life force to them. You spend and roll one of your Hit Dice and the creature regains that many hit points. This power has no effect on droids or constructs.",
+            "duration": "Instantaneous",
+            "level": 0,
+            "name": "SW Give Life",
+            "range": "Touch",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You touch one willing creature. Once before the power ends, the target can roll a d4 and add the number rolled to one ability check of its choice. The power then ends.\r\n\r\nThis power's die increases at higher levels: to a d6 at 5th level, a d8 at 11th level, and a d10 at 17th level.",
+            "duration": "up to 1 minute",
+            "level": 0,
+            "name": "SW Guidance",
+            "range": "Touch",
+            "requiresConcentration": true,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You touch a living creature that has 0 hit points. The creature becomes stable. This power has no effect on droids or constructs.",
+            "duration": "Instantaneous",
+            "level": 0,
+            "name": "SW Spare the Dying",
+            "range": "Touch",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "A creature you touch regains a number of hit points equal to 1d8 + your forcecasting ability modifier. This power has no effect on droids or constructs.\r\n\r\n***Force Potency.*** When you cast this power using a force slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.",
+            "duration": "Instantaneous",
+            "level": 1,
+            "name": "SW Heal",
+            "range": "Touch",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You touch a creature and enhance it with the Force. Choose one of the following effects; the target gains that effect until the power ends.\r\n- ***Strength.*** The target has advantage on Strength checks, and his or her carrying capacity doubles.\r\n- ***Dexterity.*** The target has advantage on Dexterity checks. It also doesn't take damage from falling 20 feet or less if it isn't incapacitated.\r\n- ***Endurance.*** The target has advantage on Constitution checks. It also gains 2d6 temporary hit points, which are lost when the power ends.\r\n- ***Cunning.*** The target has advantage on Intelligence checks.\r\n- ***Wisdom.*** The target has advantage on Wisdom checks.\r\n- ***Splendor.*** The target has advantage on Charisma checks.\r\n\r\nThis power has no effect on droids or constructs.\r\n\r\n***Force Potency.*** When you cast this power using a force slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.",
+            "duration": "up to 1 hour",
+            "level": 2,
+            "name": "SW Force Enlightenment",
+            "range": "Touch",
+            "requiresConcentration": true,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "This power bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.\r\n\r\n***Force Potency.*** When you cast this power using a force slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.",
+            "duration": "8 hours",
+            "level": 2,
+            "name": "SW Force Barrier",
+            "range": "30 feet",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You imbue your weapon with the purifying light of the Force. As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in a glowing barrier of force energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 force damage, and the power ends.\r\n\r\nThis power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 force damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level.",
+            "duration": "1 round",
+            "level": 0,
+            "name": "SW Force Technique",
+            "range": "Varies",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You strike a creature with the righteous fury of the Force. Make a melee force attack against the target, if the attack hits, the target takes force damage depending on its alignment: a dark-aligned creature takes 1d12 force damage, a balanced or unaligned creature takes 1d10 force damage, and a light-aligned creature takes 1d8 force damage.\r\n\r\nThe power's damage increases by one die when you reach 5th, 11th, and 17th level.",
+            "duration": "Instantaneous",
+            "level": 0,
+            "name": "SW Rebuke",
+            "range": "Touch",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Bonus Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You let the Force guide you, empowering your strikes. Until the power ends, your weapon attacks deal an extra 1d4 force damage on a hit.",
+            "duration": "up to 1 minute",
+            "level": 1,
+            "name": "SW Force Focus",
+            "range": "Self",
+            "requiresConcentration": true,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You lift three piles of debris or small objects from the ground and hurl them. Each pile hits a creature of your choice that you can see within range. The pile deals 1d4+1 force damage to its target. The piles all strike simultaneously and you can direct them to hit one creature or several.\r\n\r\n***Force Potency.*** When you cast this power using a force slot of 2nd level or higher, you lift and throw an additional pile of debris for each slot level above 1st.",
+            "duration": "Instantaneous",
+            "level": 1,
+            "name": "SW Project",
+            "range": "120 feet",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "You touch a creature and end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned. This power has no effect on droids or constructs.",
+            "duration": "Instantaneous",
+            "level": 2,
+            "name": "SW Restoration",
+            "range": "Touch",
+            "requiresConcentration": false,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        },
+        {
+            "castingTime": "1 Action",
+            "components": [
+                "V",
+                "S",
+                "M"
+            ],
+            "description": "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the power ends on the target.",
+            "duration": "up to 1 minute",
+            "level": 2,
+            "name": "SW Stun",
+            "range": "60 feet",
+            "requiresConcentration": true,
+            "savingThrow": {},
+            "school": "Force",
+            "tags": [
+                "Guardian"
+            ]
+        }
+    ],
+    "systemKey": "5e",
+    "textBlocks": [
+        {
+            "title": "Class Features",
+            "textBlocks": [
+                {
+                    "body": "_**Guardian:** 1st level_\r\nYou know how to channel the Force to create a unique effect. You start with your choice of one from two such effects: Cause Harm or Lend Aid. At 3rd level, your Guardian Focus grants you an additional effect. When you use your Channel the Force, you choose which effect to create.\r\nSome Channel the Force effects require saving throws. When you use such an effect from this class, the DC equals your universal force save DC.\r\nYou can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You regain all expended uses when you finish a short or long rest.\r\n#### Cause Harm\r\nAs an action, you can expend a use of your Channel the Force to sap the life from a hostile creature you can see within 60 feet. That creature must make a Constitution saving throw. On a failed save, the creature takes necrotic damage equal to your guardian level + your Charisma modifier (minimum of +1), or half as much on a successful one.\r\n#### Lend Aid\r\nAs a bonus action, you can expend a use of your Channel the Force and touch a beast or humanoid within 5 feet of you. That creature regains hit points equal to your guardian level + your Wisdom modifier (minimum of +1). Alternatively, if the beast or humanoid is poisoned or diseased, you neutralize the poison or disease. If more than one poison or disease afflicts the target, you neutralize one poison or disease that you know is present, or you neutralize one at random.",
+                    "title": "Channel the Force"
+                },
+                {
+                    "body": "_**Guardian:** 1st level_\r\nIn your meditations on the Force, you have learned powers, fragments of knowledge that imbue you with an abiding force ability. See chapter 10 for the general rules of forcecasting and chapter 11 for the force powers list.\r\n#### Force Powers Known\r\nYou learn 5 force powers of your choice, and you learn more at higher levels, as shown in the Force Powers Known column of the guardian table. You may not learn a force power of a level higher than your Max Power Level, and you may learn a force power at the same time you learn its prerequisite.\r\n#### Force Points\r\nYou have a number of force points equal to your guardian level x 2, as shown in the Force Points column of the guardian table, + your Wisdom or Charisma modifier (your choice). You use these force points to cast force powers. You regain all expended force points when you finish a long rest.\r\n#### Max Power Level\r\nMany force powers can be overpowered, consuming more force points to create a greater effect. You can overpower these abilities to a maximum level, which increases at higher levels, as shown in the Max Power Level column of the guardian table.\r\nYou may only cast force powers at 4th and 5th-level once. You regain the ability to do so after a long rest.\r\n#### Forcecasting Ability\r\nYour forcecasting ability varies based on the alignment of the powers you cast. You use Wisdom for light side powers, Charisma for dark side powers, and Wisdom or Charisma for universal powers (your choice). You use this ability whenever a power refers to your forcecasting ability. Additionally, you use this ability modifier when setting the saving throw DC for a force power you cast and when making an attack roll with one.\r\n___\r\n**Force save DC** = 8 + your proficiency bonus + your forcecasting ability modifier\r\n___\r\n**Force attack modifier** = your proficiency bonus + your forcecasting ability modifier\r\n___",
+                    "title": "Forcecasting"
+                },
+                {
+                    "body": "_**Guardian:** 2nd level_\r\nYou adopt a particular style of fighting as your specialty. Choose one of the fighting style options, detailed in Chapter 6. ",
+                    "title": "Fighting Style"
+                },
+                {
+                    "body": "_**Guardian:** 2nd level_\r\nWhen you hit a creature with a melee weapon attack, you can expend force points to deal additional damage to the target, which is the same type as the weapon's damage. The additional damage is 1d8 for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table. ",
+                    "title": "Force-Empowered Strikes"
+                },
+                {
+                    "body": "_**Makashi Form:** 3rd level_\r\nYou gain the following Channel the Force option.\r\n#### Makashi Riposte\r\nWhen another creature damages you with a melee attack, you can expend a use of your Channel the Force and use your reaction to attempt to deflect the attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your guardian level.\r\nIf you reduce the damage to 0, you can immediately make a single melee weapon attack against that creature as a part of the reaction.",
+                    "title": "Channel the Force"
+                },
+                {
+                    "body": "_**Makashi Form:** 3rd level_\r\nYou gain the Makashi lightsaber form, detailed in Chapter 6. If you already know this form, you can instead choose another lightsaber form.",
+                    "title": "Form Basics"
+                },
+                {
+                    "body": "_**Makashi Form:** 3rd level_\r\nAs a bonus action, you can enter an offensive stance for one minute. While in this stance, you add your Wisdom or Charisma modifier (your choice) to the first melee weapon attack and damage rolls you make each turn.\r\nThis effect ends early if you are incapacitated or die. Once you've used this feature, you can't use it again until you finish a long rest.",
+                    "title": "The Way of the Ysalamiri"
+                },
+                {
+                    "body": "_**Guardian:** 3rd level_\r\nYou gain an aura of your choice, as detailed at the end of the class description, and you gain more at higher levels, as shown in the Auras Known column of the guardian table. Your aura has a radius of 5 feet, which increases at higher levels, as shown in the Aura Radius column of the guardian table.",
+                    "title": "Guardian Aura"
+                },
+                {
+                    "body": "_**Guardian:** 3rd, 7th, 15th, and 20th level_\r\nYou begin to focus your studies on a specific lightsaber form, which is detailed at the end of the class description. ",
+                    "title": "Guardian Focus"
+                },
+                {
+                    "body": "_**Guardian:** 4th, 8th, 12th, 16th, and 19th level_\r\nYou can increase one ability score by 2, or you can increase two ability scores by 1. You can't increase an ability score above 20 using this feature.",
+                    "title": "Ability Score Improvement"
+                },
+                {
+                    "body": "_**Guardian:** 5th level_\r\nYou can attack twice, instead of once, whenever you take the Attack action on your turn.",
+                    "title": "Extra Attack"
+                },
+                {
+                    "body": "Your Intelligence score increases by 2, and your Wisdom score increases by 1.",
+                    "title": "Ability Score Increase"
+                },
+                {
+                    "body": "Cereans reach adulthood in their late teens and live less than a century.",
+                    "title": "Age"
+                },
+                {
+                    "body": "Cereans' altruistic nature causes them to tend toward the light side, though there are exceptions.",
+                    "title": "Alignment"
+                },
+                {
+                    "body": "Cereans have a natural attunement for the Force, which makes them resistant to its powers. You have advantage on Wisdom and Charisma saving throws against force powers.",
+                    "title": "Closed Mind"
+                },
+                {
+                    "body": "You can choose to reroll Initiative checks, but you must use the new roll.",
+                    "title": "Intuitive Initiative"
+                },
+                {
+                    "body": "You can speak, read, and write Galactic Basic and Cerean. Cerean is characterized by its gravelly sounds.",
+                    "title": "Languages"
+                },
+                {
+                    "body": "You have proficiency with Nature or Perception (your choice).",
+                    "title": "Natural Instinct"
+                },
+                {
+                    "body": "You have proficiency in Perception.",
+                    "title": "Perceptive"
+                },
+                {
+                    "body": "You can embrace the Force and use your advanced insight to predict likely outcomes, allowing you to turn failures into successes. When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+                    "title": "Prediction"
+                },
+                {
+                    "body": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.",
+                    "title": "Second Heart"
+                },
+                {
+                    "body": "Cereans typically stand between 6 and 7 feet tall and weigh about 150 lbs. Regardless of your position in that range, your size is Medium.",
+                    "title": "Size"
+                },
+                {
+                    "body": "Your base walking speed is 30 feet.",
+                    "title": "Speed"
+                },
+                {
+                    "body": "When you make a long jump, you can cover a number of feet up to twice your Strength score. When you make a high jump, you can leap a number of feet up into the air equal to 3 + twice your Strength modifier.",
+                    "title": "Strong-Legged"
+                },
+                {
+                    "body": "You only need 3 hours of sleep during a long rest to gain its benefits, instead of 6. Additionally, if your long rest would be interrupted, you only need to complete the long rest instead of restarting it to gain its benefits.",
+                    "title": "Trance"
+                },
+                {
+                    "body": "You possess keen insight into how other people think and feel. You gain the following benefits: \r\n- Increase your Wisdom score by 1, to a maximum of 20. \r\n- You gain proficiency in the Insight skill. If you are already proficient in it, you instead gain expertise in it. \r\n- You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom (Insight) check contested by the target's Charisma (Deception) check. On a success, you have advantage on attack rolls and ability checks against the target until the end of your next turn.\r\n",
+                    "title": "Empathic"
+                }
+            ]
+        },
+        {
+            "title": "Background",
+            "textBlocks": [
+                {
+                    "body": "As a Jedi, you command the respect of those who are loyal to the Jedi Order. You and your adventuring companions can expect to receive free healing and care at any Jedi temple, and those who support your religion will support you (but only you) at a modest lifestyle.\r\n\r\nYou might also have ties to a specific Jedi temple and have a residence there. This could be the temple where you trained, or a temple where you have found a new home. While near your temple, you can call upon the Jedi for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.\r\n",
+                    "title": "Shelter of the Faithful"
+                }
+            ]
+        },
+        {
+            "title": "Racial Traits",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Feats",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Characteristics",
+            "textBlocks": [
+                {
+                    "title": "Personality Traits"
+                },
+                {
+                    "title": "Ideals"
+                },
+                {
+                    "title": "Bonds"
+                },
+                {
+                    "title": "Flaws"
+                }
+            ]
+        },
+        {
+            "title": "Appearance",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Organizations",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Allies",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Enemies",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Backstory",
+            "textBlocks": [
+                {}
+            ]
+        },
+        {
+            "title": "Other",
+            "textBlocks": [
+                {}
+            ]
+        }
+    ],
+    "trackers": []
+}

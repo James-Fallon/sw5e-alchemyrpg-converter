@@ -1,12 +1,14 @@
 import json
 from constants import ATTRIBUTES, WEAPON_TYPES, SKILLS_TO_ABILITIES
 
+
 def convert_classes(full_dict: dict) -> list:
     output_classes = [{
-            "class": full_dict["class"],
-            "level": full_dict["level"]
+        "class": full_dict["class"],
+        "level": full_dict["level"]
     }]
     return output_classes
+
 
 def convert_ability_scores(full_dict: dict) -> list:
     results = []
@@ -16,6 +18,7 @@ def convert_ability_scores(full_dict: dict) -> list:
             'value': full_dict[x]
         })
     return results
+
 
 def convert_skills(attribs):
     result = []
@@ -32,6 +35,7 @@ def convert_skills(attribs):
 
     return result
 
+
 def get_tool_profs(attribs):
 
     tool_ids = []
@@ -47,8 +51,9 @@ def get_tool_profs(attribs):
             "name": attribs[f"repeating_tool_{tool_id}_toolname"],
             "type": "tool"
         })
-    
+
     return tool_profs
+
 
 def get_save_profs(attribs):
     save_profs = []
@@ -58,8 +63,9 @@ def get_save_profs(attribs):
                 "name": x.capitalize(),
                 "type": 'save'
             })
-    
+
     return save_profs
+
 
 def convert_profs(attribs):
     all_profs = get_save_profs(attribs)
@@ -67,15 +73,17 @@ def convert_profs(attribs):
     all_profs.extend(get_weapon_and_armor_profs(attribs))
     return all_profs
 
+
 def add_weapon_group(weapon_type):
     result = []
-    
+
     for x in WEAPON_TYPES[weapon_type]:
         result.append({
             "name": x,
             "type": 'weapon'
         })
     return result
+
 
 def get_weapon_and_armor_profs(attribs):
     prof_ids = []
@@ -87,7 +95,7 @@ def get_weapon_and_armor_profs(attribs):
 
     profs = []
     for prof_id in prof_ids:
-        name  = attribs[f"repeating_proficiencies_{prof_id}_name"].title()
+        name = attribs[f"repeating_proficiencies_{prof_id}_name"].title()
         type_key = f"repeating_proficiencies_{prof_id}_prof_type"
 
         if name in WEAPON_TYPES.keys():
@@ -97,13 +105,15 @@ def get_weapon_and_armor_profs(attribs):
         if type_key not in attribs.keys():
             type = 'language'
         else:
-            type = attribs[f"repeating_proficiencies_{prof_id}_prof_type"].lower()
+            type = attribs[f"repeating_proficiencies_{prof_id}_prof_type"].lower(
+            )
         profs.append({
             "name": name,
             "type": type
         })
-    
+
     return profs
+
 
 def _parse_repeating_fields(attribs, type):
     ids = []
@@ -112,11 +122,12 @@ def _parse_repeating_fields(attribs, type):
             id = x.split('_')[2]
             if id not in ids:
                 ids.append(id)
-    
+
     items = []
     for id in ids:
         starter_str = f'repeating_{type}_{id}'
-        keys = [x.split(starter_str)[1] for x in attribs.keys() if x.startswith(starter_str)]
+        keys = [x.split(starter_str)[1]
+                for x in attribs.keys() if x.startswith(starter_str)]
         keys = [x[1:] for x in keys]
         item = {}
         for x in keys:
@@ -124,14 +135,18 @@ def _parse_repeating_fields(attribs, type):
         items.append(item)
     return items
 
+
 def get_inventory(attribs):
-    return(_parse_repeating_fields(attribs, 'inventory'))
+    return (_parse_repeating_fields(attribs, 'inventory'))
+
 
 def get_traits(attribs):
-    return(_parse_repeating_fields(attribs, 'traits'))
+    return (_parse_repeating_fields(attribs, 'traits'))
+
 
 def get_attacks(attribs):
-    return(_parse_repeating_fields(attribs, 'attack'))
+    return (_parse_repeating_fields(attribs, 'attack'))
+
 
 def convert_text_blocks(attribs):
     traits = get_traits(attribs)
@@ -140,6 +155,7 @@ def convert_text_blocks(attribs):
     add_defaults_to_text_blocks(text_blocks)
 
     return text_blocks
+
 
 def convert_spells(attribs):
     spell_ids = []
@@ -184,9 +200,10 @@ def convert_spells(attribs):
 
     return spells
 
+
 def parse_spell_slots(attribs):
-    # We are crudely doing 
-    # force points = level 1 spell slots 
+    # We are crudely doing
+    # force points = level 1 spell slots
     # tech points = level 2 spell slots
     # TODO - change this once 'Variant: Spell Points' rule is available in Alchemy
     return [
@@ -201,10 +218,11 @@ def parse_spell_slots(attribs):
 
     ]
 
+
 def add_defaults_to_text_blocks(text_blocks):
     # If we don't have empty dicts for these the character sheet will break when editing
     blocks_we_have = [x["title"] for x in text_blocks]
-    
+
     defaults_required = [
         "Class Features",
         "Racial Traits",
@@ -222,14 +240,15 @@ def add_defaults_to_text_blocks(text_blocks):
     for default in defaults_required:
         if default not in blocks_we_have:
             if default == 'Characteristics':
-                text_blocks.append({'title': default,"textBlocks": [
+                text_blocks.append({'title': default, "textBlocks": [
                     {"title": "Personality Traits"},
                     {"title": "Ideals"},
                     {"title": "Bonds"},
                     {"title": "Flaws"}
                 ]})
             else:
-                text_blocks.append({'title': default,"textBlocks": [{}]})
+                text_blocks.append({'title': default, "textBlocks": [{}]})
+
 
 def convert_traits_to_text_blocks(traits):
     text_block_categories = {}
@@ -251,8 +270,9 @@ def convert_traits_to_text_blocks(traits):
             "title": "Class Features" if cat == 'Feat' else cat,
             "textBlocks": tblocks
         })
-    
+
     return result
+
 
 def pivot_attribs(attribs):
     res = {}
@@ -267,10 +287,12 @@ def pivot_attribs(attribs):
 
     return res, hp_max, hd_max
 
+
 def get_attr_from_attack(attack_string):
     for attr in ATTRIBUTES:
         if attr in attack_string:
             return attr[:3]
+
 
 def parse_ranges(attack_range_string):
     range_deets = attack_range_string.split('(range')[1].strip().split('/')
@@ -279,6 +301,7 @@ def parse_ranges(attack_range_string):
     long_range = int(range_deets[1])
 
     return short_range, long_range
+
 
 def convert_items_with_actions(attribs):
     items_with_actions = []
@@ -301,7 +324,7 @@ def convert_items_with_actions(attribs):
         }
 
         weapon_attacks = [a for a in attacks if a["atkname"] == i["itemname"]]
-        
+
         if not is_weapon or len(weapon_attacks) == 0:
             items_with_actions.append({
                 "item": item
@@ -318,18 +341,18 @@ def convert_items_with_actions(attribs):
                 "crit": 20,
                 "damageRolls": [
                     {
-                    "abilityName": damage_attr,
-                    "dice": attack["dmgbase"],
-                    "type": attack["dmgtype"]
+                        "abilityName": damage_attr,
+                        "dice": attack["dmgbase"],
+                        "type": attack["dmgtype"]
                     }
                 ],
-                "isProficient": True, # Just say yes for now
+                "isProficient": True,  # Just say yes for now
                 "name": f"{i['itemname'].title()} Attack",
                 "rollsAttack": True,
                 "savingThrow": {
-                } # TODO
+                }  # TODO
             }
-            
+
             is_ranged = attack["atkrange"].strip() != ""
             if is_ranged:
                 attack_step["isRanged"] = True
@@ -357,8 +380,9 @@ def convert_items_with_actions(attribs):
 
     return items_with_actions
 
+
 def convert(input_dict):
-    
+
     attribs, hp_max, hd_max = pivot_attribs(input_dict["attribs"])
 
     result = {
@@ -372,40 +396,42 @@ def convert(input_dict):
         'currentHp': int(attribs["hp"]),
         'exp': int(attribs["experience"]),
         'eyes': attribs["eyes"],
-        'gold': attribs["cr"], # todo - can we just change this to credits in Alchemy?
+        # todo - can we just change this to credits in Alchemy?
+        'gold': attribs["cr"],
         'hair': attribs["hair"],
         'height': attribs["height"],
         'initiativeBonus': int(attribs["initiative_bonus"]),
         'isNPC': False,
-        'isSpellcaster': True, # TODO - Not sure how to get this
-        'itemsWithActions': convert_items_with_actions(attribs), 
-        'movementModes': [], # Is this needed?
+        'isSpellcaster': True,  # TODO - Not sure how to get this
+        'itemsWithActions': convert_items_with_actions(attribs),
         'proficiencies': convert_profs(attribs),
         'proficiencyBonus': int(attribs["pb"]),
         'race': attribs["race"],
-        'size': 'Medium', # TODO - not available i dont think
+        'size': 'Medium',  # TODO - not available i dont think
         'skills': convert_skills(attribs),
         'skin': attribs["skin"],
         'speed': int(attribs["speed"].split(' ')[0]),
-        'spellFilters': ["Known"], # Not sure on this 
-        'spellSlots': parse_spell_slots(attribs), 
-        'spellcastingAbility': "wis", # TODO - not sure how to get this
+        'spellFilters': ["Known"],  # Not sure on this
+        'spellSlots': parse_spell_slots(attribs),
+        'spellcastingAbility': "wis",  # TODO - not sure how to get this
         'spells': convert_spells(attribs),
         'systemKey': "5e",
         'textBlocks': convert_text_blocks(attribs),
-        'trackers': [] # TODO - this will be hard to implement
+        'trackers': []  # TODO - this will be hard to implement
     }
-    
+
     return result
 
+
 def main():
-    with open('./sampleSW5e_roll20Export.json') as f:
+    with open('/Users/jayo/Downloads/trooper_roll20.json') as f:
         sw5e_json = json.load(f)
 
     alchemyjson = convert(sw5e_json)
 
     with open('./alchemy-character.json', 'w', encoding='utf-8') as f:
         json.dump(alchemyjson, f, ensure_ascii=False, indent=4)
+
 
 if __name__ == '__main__':
     main()

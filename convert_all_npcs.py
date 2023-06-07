@@ -127,7 +127,6 @@ def convert_senses(senses_list):
 
 
 def convert_legendary_actions(monster_name, behaviours):
-
     body = f"The {monster_name} can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The {monster_name} regains spent legendary actions at the start of its turn."
 
     for b in behaviours:
@@ -179,15 +178,20 @@ def convert_traits(behaviours):
 
 
 def convert_text_blocks(monster_name, behaviours):
-    traits = convert_traits(
-        [b for b in behaviours if b['monsterBehaviorType'] == 'Trait'])
-    legendaries = convert_legendary_actions(
-        monster_name, [b for b in behaviours if b['monsterBehaviorType'] == 'Legendary'])
-    reactions = convert_reactions(
-        [b for b in behaviours if b['monsterBehaviorType'] == 'Reaction'])
+
+    legendary_actions_raw = [b for b in behaviours if b['monsterBehaviorType'] == 'Legendary']
+    traits_raw = [b for b in behaviours if b['monsterBehaviorType'] == 'Trait']
+    reactions_raw = [b for b in behaviours if b['monsterBehaviorType'] == 'Reaction']
+
+    abilities = convert_traits(traits_raw)
+    if len(legendary_actions_raw) > 0:
+        abilities += [convert_legendary_actions(monster_name, legendary_actions_raw)]
+    
+    if len(reactions_raw) > 0:
+        abilities += [convert_reactions(reactions_raw)]
 
     abilities_text_block = {
-        "textBlocks": traits + [legendaries] + [reactions],
+        "textBlocks": abilities,
         "title": "Abilities"
     }
 
@@ -214,16 +218,14 @@ def convert_actions(behaviors):
         if b['monsterBehaviorType'] != 'Action':
             continue
 
-        ability = 'str' if b['attackType'] == "MeleeWeapon" else 'dex'
         attack_step = {
             "attack": {
-                "ability": ability,
+                "bonus": b["attackBonus"],
                 "crit": 20,
                 "damageRolls": [
                     {
-                        "abilityName": ability,
                         "dice": b["damageRoll"],
-                                "type": b["damageType"]
+                        "type": b["damageType"]
                     }
                 ],
                 "isProficient": True,
@@ -310,6 +312,22 @@ def convert(monster):
         'speed': int(monster["speed"]),
         'systemKey': "5e",
         'textBlocks': convert_text_blocks(monster['name'], monster['behaviors']),
+        "trackers": [
+            {
+            "color": "Yellow",
+            "max": 355000,
+            "name": "XP",
+            "type": "Bar",
+            "value": int(monster["experiencePoints"])
+            },
+            {
+            "color": "Green",
+            "max": monster["hitPoints"],
+            "name": "HP",
+            "type": "Bar",
+            "value": monster["hitPoints"]
+            }
+        ],
         'type': monster['types'][0].title()
     }
 
@@ -331,3 +349,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# TODO -> Fix legenedary actions and trackers

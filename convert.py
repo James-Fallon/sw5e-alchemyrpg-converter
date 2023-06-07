@@ -167,14 +167,18 @@ def convert_spells(attribs):
             if id not in spell_ids:
                 spell_ids.append(id)
 
+    max_spell_level = 0
     spells = []
     for spell_id in spell_ids:
 
         spell_level = spell_id.split('_')[0]
         level = 0 if spell_level == 'cantrip' else int(spell_level)
+        if level > max_spell_level:
+            max_spell_level = level
         base = f"repeating_power-{spell_id}_"
 
-        spell_name = 'SW ' + attribs[f"{base}powername"]
+        # We don't want to match 5e SRD spells so we add prefix + suffix
+        spell_name = '~ ' + attribs[f"{base}powername"] + ' ~'
 
         spells.append({
             "castingTime": attribs[f"{base}powercastingtime"].title(),
@@ -198,14 +202,29 @@ def convert_spells(attribs):
             ]
         })
 
-    return spells
+    return spells, max_spell_level
 
 
-def parse_spell_slots(attribs):
-    # We are crudely doing
-    # force points = level 1 spell slots
-    # tech points = level 2 spell slots
-    # TODO - change this once 'Variant: Spell Points' rule is available in Alchemy
+def parse_spell_slots(attribs, max_spell_level=0):
+    # We just give all points to the top level slot available
+
+    if max_spell_level == 0:
+        return []
+    
+    result = []
+    for _ in range(1, max_spell_level):
+        result.append({"max": 0,"remaining": 0})
+    
+    force_points = attribs["force_power_points_total"]
+    tech_points = attribs["tech_power_points_total"]
+
+    if force_points != 0:
+        result.append({"max": force_points,"remaining": force_points})
+    else:
+        result.append({"max": tech_points,"remaining": tech_points})
+
+    return result
+
     return [
         {
             "max": attribs["force_power_points_total"],
@@ -407,24 +426,28 @@ def convert(input_dict):
         'proficiencies': convert_profs(attribs),
         'proficiencyBonus': int(attribs["pb"]),
         'race': attribs["race"],
-        'size': 'Medium',  # TODO - not available i dont think
+        'size': 'Medium',
         'skills': convert_skills(attribs),
         'skin': attribs["skin"],
         'speed': int(attribs["speed"].split(' ')[0]),
-        'spellFilters': ["Known"],  # Not sure on this
-        'spellSlots': parse_spell_slots(attribs),
-        'spellcastingAbility': "wis",  # TODO - not sure how to get this
-        'spells': convert_spells(attribs),
         'systemKey': "5e",
         'textBlocks': convert_text_blocks(attribs),
-        'trackers': []  # TODO - this will be hard to implement
+        'trackers': []  #this will be hard to implement
     }
+
+    # Parse spells
+    result['spellcastingAbility'] = "wis"  # TODO - not sure on either of these
+    result['spellFilters'] = ["Known"]
+
+    spells, max_spell_level = convert_spells(attribs)
+    result['spells'] = spells
+    result['spellSlots'] = parse_spell_slots(attribs, max_spell_level)
 
     return result
 
 
 def main():
-    with open('/Users/jayo/Downloads/trooper_roll20.json') as f:
+    with open('./sampleSW5e_roll20Export.json') as f:
         sw5e_json = json.load(f)
 
     alchemyjson = convert(sw5e_json)

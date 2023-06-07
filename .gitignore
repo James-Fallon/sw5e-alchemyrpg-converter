@@ -1,0 +1,6 @@
+*.pyc
+alchemy_articles/*
+enhanced-items/*
+jsons/*
+sw5e_dbs/*
+.DS_Store
